@@ -1,10 +1,11 @@
 function GetStarted() {
   return (
-    <div className="flex bg-[#2A033F] mt-6 items-center justify-center gap-8 h-[230px]">
+    <div className="flex flex-col items-center md:flex-row bg-gradient-to-br from-[#2A033F] to-[#7B1FA2]  mt-6 items-center p-8 justify-center text-center gap-8 h-auto">
       <div>
         <h2 className=" w-[400px] text-white text-3xl">
-          Create your profile and upgrade your possibility of getting relatable
-          jobs.
+          Create your <span className="text-[#F69D1D]">profile</span> and
+          upgrade your possibility of getting relatable{" "}
+          <span className="text-[#F69D1D]">jobs</span>
         </h2>
 
         <button className="bg-[#F69D1D] py-2 px-2  mt-6 rounded">

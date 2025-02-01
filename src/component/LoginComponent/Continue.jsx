@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function Continue({ Logo, Text }) {
   return (
-    <div className="flex  gap-x-8 items-center text-[#74737e] w-[500px] mx-auto my-4 justify-center bg-[#f2f4f8] rounded-full py-2">
+    <div className="flex  gap-x-8 items-center text-[#74737e] w-[500px] mx-auto my-4 justify-center bg-[#f2f4f8] py-2 rounded-full ">
       <div>
         <img
           src={Logo}

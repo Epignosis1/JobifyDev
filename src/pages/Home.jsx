@@ -1,6 +1,6 @@
-import Nav from "../component/Nav";
-import Main from "../component/Main";
-import Footer from "../component/Footer";
+import Nav from "../component/GeneralComponents/Nav";
+import Main from "../component/HomeComponents/Main";
+import Footer from "../component/GeneralComponents/Footer";
 function Home() {
   return (
     <div>
