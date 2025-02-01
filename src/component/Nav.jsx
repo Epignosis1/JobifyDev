@@ -2,7 +2,7 @@ import Logo from "./Logo";
 import { Link, NavLink } from "react-router-dom";
 function Nav() {
   return (
-    <div className="flex items-center justify-between bg-[#2A033F] py-2 px-8">
+    <div className="flex border-b border-[rgba(255,255,255,0.2)] items-center justify-between bg-[#2A033F] py-2 px-8">
       <Link to="/">
         <Logo />
       </Link>

@@ -1,14 +1,16 @@
 import GetStarted from "./GetStarted";
 import Explore from "./explore";
+import Something from './something.jsx'
 
 function Main() {
   return (
     <div>
-      <Explore
+      {/* <Explore
         mainLinks="/main1.svg"
         mainHeader="Find new Employment Posssibilities"
         mainParagraph="Create an account, complete your profile and wait for the appropriate oppourtunities"
-      />
+      /> */}
+      <Something/>
       <Explore
         mainLinks="/main2.svg"
         mainHeader="Discover useful advice on Career Developments"
