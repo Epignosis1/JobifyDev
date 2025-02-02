@@ -1,12 +1,12 @@
 import GetStarted from "./GetStarted";
-import Explore from "./explore";
-import Banner from "./Banner"
+import Explore from "./Explore";
+import Banner from "./Banner";
 
 function Main() {
   return (
     <div>
-      <Banner/>
-      <Explore/>
+      <Banner />
+      <Explore />
       <GetStarted />
     </div>
   );
