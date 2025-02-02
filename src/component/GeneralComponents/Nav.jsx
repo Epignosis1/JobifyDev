@@ -18,9 +18,11 @@ function Nav() {
       {isOpen && (
         <div className="  shadow-xl font-semibold bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] w-full justify-center flex flex-col text-lg left-0 items-center gap-8  py-6 absolute top-20">
           <NavLinks />
-          <button className="bg-[#F69D1D] py-1 mx-4 px-3 w-[90vw] rounded-full text-black">
-            <Link to="/login">Login</Link>
-          </button>
+          <Link to="/login">
+            <button className="bg-[#F69D1D] py-1 mx-4 px-3 w-[90vw] rounded-full text-black">
+              Login
+            </button>
+          </Link>
           <button className="bg-white w-[90vw] rounded-full text-black px-3 py-1 ">
             Sign up
           </button>
