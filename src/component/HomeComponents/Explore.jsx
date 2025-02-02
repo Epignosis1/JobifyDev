@@ -1,7 +1,7 @@
 function Explore() {
   return (
     <div className="flex flex-col items-center gap-4">
-      <img src="/main2.svg" className="md:w-[1100px] w-[460px] mt-[40px]" />
+      <img src="/main2.svg" className="md:w-[1100px] w-[420px] mt-[40px]" />
       <h1 className="mdtext-5xl text-3xl text-center mt-4">
         Discover useful advice on Career Developments
       </h1>

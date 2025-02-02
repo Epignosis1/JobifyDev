@@ -6,12 +6,12 @@ import { FiX, FiMenu } from "react-icons/fi";
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="flex   items-center justify-between bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] py-2 px-8">
+    <header className="flex   items-center justify-between bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] py-6 px-6 md:px-20">
       <Link to="/">
         <Logo />
       </Link>
 
-      <ul className="items-center gap-14 hidden md:flex">
+      <ul className="items-center gap-14 hidden p-5 md:flex">
         <NavLinks />
       </ul>
 

@@ -14,7 +14,7 @@ function Login() {
       <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
         Log in to your account
       </h2>
-      <div className="flex bg-gradient-to-tr from-[#2A033F] to-[#7B1FA2] flex-col py-10 bg-[#2A033F] rounded-xl md:w-[500px] w-[450px]  mx-auto">
+      <div className="flex bg-gradient-to-tr from-[#2A033F] to-[#7B1FA2] flex-col py-10 bg-[#2A033F] rounded-xl md:w-[500px] w-[400px]  mx-auto">
         <div className="flex justify-center items-center mb-5">
           <Logo />
         </div>

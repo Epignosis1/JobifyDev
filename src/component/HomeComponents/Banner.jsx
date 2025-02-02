@@ -1,6 +1,6 @@
 function Banner() {
   return (
-    <div className=" gap-4 text-white h-[70vh] flex flex-col bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] justify-center text-center">
+    <div className=" gap-4 p-8 text-white h-[70vh] flex flex-col bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] justify-center text-center">
       <h1 className="md:text-6xl text-4xl font-semibold">
         Find new <span className="text-[#F69D1D]">Employment</span>{" "}
         Posssibilities
