@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --dark-purple: #2a033f;
+  --light-purple: #7b1fa2;
+  --primary-orange: #f69d1d;
+}
+
 * {
   margin: 0;
   padding: 0;

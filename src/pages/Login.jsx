@@ -14,7 +14,7 @@ function Login() {
       <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
         Log in to your account
       </h2>
-      <div className="flex bg-gradient-to-tr from-[#2A033F] to-[#7B1FA2] flex-col py-10 bg-[#2A033F] rounded-xl md:w-[500px] w-[400px]  mx-auto">
+      <div className="flex bg-gradient-to-tr from-[var(--dark-purple)] to-[var(--light-purple)] flex-col py-10  rounded-xl md:w-[500px] w-[400px]  mx-auto">
         <div className="flex justify-center items-center mb-5">
           <Logo />
         </div>
@@ -30,7 +30,7 @@ function Login() {
             placeholder="Password:"
           />
           <button
-            className="bg-[#F69D1D] text-[#2A033F] rounded py-2 "
+            className="bg-[var(--primary-orange)] text-[var(--dark-purple)] rounded py-2 "
             type="submit"
           >
             Login
@@ -45,10 +45,15 @@ function Login() {
         <Continue Logo="/Facebook.svg" Text="Facebook" />
       </div>
       <p className="text-center text-sm">
-        New to Jobify? <a className="text-[#F69D1D] font-semibold">Join now</a>
+        New to Jobify?{" "}
+        <NavLink
+          to="/Signup"
+          className="text-[var(--primary-orange)] cursor-pointer font-semibold"
+        >
+          Join now
+        </NavLink>
       </p>
     </div>
   );
 }
 export default Login;
-
