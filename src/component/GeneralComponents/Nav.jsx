@@ -23,9 +23,13 @@ function Nav() {
               Login
             </button>
           </Link>
+
+          <Link to="/Signup">
           <button className="bg-white w-[90vw] rounded-full text-black px-3 py-1 ">
             Sign up
           </button>
+          </Link>
+          
         </div>
       )}
 
@@ -40,7 +44,7 @@ function Nav() {
           <Link to="/login">Login</Link>
         </button>
         <button className="bg-white text-black px-3 py-1 rounded-lg">
-          Sign up
+          <Link to="/Signup">Signup</Link>
         </button>
       </div>
     </header>
