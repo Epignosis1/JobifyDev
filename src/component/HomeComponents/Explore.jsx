@@ -5,7 +5,7 @@ function Explore() {
       <h1 className="mdtext-5xl text-3xl text-center mt-4">
         Discover useful advice on Career Developments
       </h1>
-      <p className="text-xl text-center">
+      <p className="text-lg px-6 text-center">
         Find and apply for the suitable jobs more quickly with personalized
         career advice and suggestions{" "}
       </p>

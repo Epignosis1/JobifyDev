@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 const Signup = () => {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 h-[100vh]">
       <div className="flex ">
         <button className="shadow-md m-3 p-2 rounded-lg">
           <NavLink to="/">&larr; Back to home</NavLink>
@@ -10,8 +10,8 @@ const Signup = () => {
       <h2 className="text-center text-3xl mt-10 mb-8 font-semibold ">
         Create your account
       </h2>
-      <div className="flex mx-20 rounded-lg p-4 bg-white">
-        <form className="w-full bg-white text-sm py-3">
+      <div className="flex shadow-lg mx-10 rounded-lg p-4 bg-white">
+        <form className="w-full bg-white text-sm py-3 ">
           <div className="grid grid-cols-2 gap-4 mb-4 ">
             <input
               type="text"
