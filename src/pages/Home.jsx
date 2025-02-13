@@ -1,14 +1,10 @@
-import Nav from "../component/GeneralComponents/Nav";
-import Main from "../component/HomeComponents/Main";
-import Footer from "../component/GeneralComponents/Footer";
+import Main from "../components/HomeComponents/Main";
 function Home() {
-  return (
-    <div>
-      <Nav />
-      <Main />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="overflow-x-hidden">
+			<Main />
+		</div>
+	);
 }
 
 export default Home;
