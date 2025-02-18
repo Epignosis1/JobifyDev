@@ -68,8 +68,8 @@ function Career() {
   ];
   return (
     <div>
-      <div className="bg-[url('career.avif')] bg-cover bg-center h-[60vh] w-full text-center flex justify-center ">
-        <h2 className="text-5xl mt-40 font-bold ">
+      <div className="bg-[url('/career.avif')] bg-cover bg-center h-[60vh] w-full text-center flex justify-center ">
+        <h2 className="lg:text-5xl text-3xl mt-40 font-bold ">
           Explore different Careers and get insights{" "}
         </h2>
       </div>
