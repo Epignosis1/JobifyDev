@@ -1,73 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Footer from "@/components/GeneralComponents/Footer";
+import Nav from "@/components/GeneralComponents/Nav";
+import Form from "@/components/FormComponents/Form";
+
 const Signup = () => {
+  const { signType } = useParams();
+
   return (
-    <div className="bg-gray-100 h-[100vh]">
-      <div className="flex ">
-        <button className="shadow-md m-3 p-2 rounded-lg">
-          <NavLink to="/">&larr; Back to home</NavLink>
-        </button>
+    <div className=" h-screen">
+      <Nav />
+
+      <div className="text-center text-gray-700  mt-10 mb-8  flex flex-col gap-3">
+        <h2 className="text-2xl font-semibold">
+          Create a Job {signType} Account
+        </h2>
+        <p className=" ">Your new career is one click away</p>
+        <p className="text-2xl">STEP 1 of 2</p>
       </div>
-      <h2 className="text-center text-3xl mt-10 mb-8 font-semibold ">
-        Create your account
-      </h2>
-      <div className="flex shadow-lg mx-10 rounded-lg p-4 bg-white">
-        <form className="w-full bg-white text-sm py-3 ">
-          <div className="grid grid-cols-2 gap-4 mb-4 ">
-            <input
-              type="text"
-              className="shadow-md rounded-sm border border-purple-900 px-3 py-2"
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="shadow-md rounded-sm border border-purple-900 px-3 "
-            />
-          </div>
 
-          <input
-            type="phone"
-            className="w-full grid input-field mb-4 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            placeholder="Phone number"
-          />
-          <input
-            type="email"
-            className=" w-full input-field mb-4 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            placeholder="Email address"
-          />
+      <Form signType={signType} />
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <input
-              type="text"
-              placeholder="Country"
-              className="shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            />
-            <input
-              type="text"
-              placeholder="State"
-              className="shadow-md rounded-sm border border-purple-900 px-3"
-            />
-          </div>
-
-          <input
-            type="password"
-            className=" w-full input-field mb-2 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            placeholder="Password"
-          />
-          <p className="text-xs text-gray-500 mb-4">
-            Please be informed that your password should entail uppercase
-            letters, lowercase letters, numbers, and symbols
-          </p>
-          <input
-            type="password"
-            className="w-full input-field mb-4 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            placeholder="Confirm password"
-          />
-          <button className="p-4 bg-purple-950 text-white py-2 rounded-sm hover:bg-purple-800 transition duration-300">
-            Submit
-          </button>
-        </form>
-      </div>
+      <Footer />
     </div>
   );
 };
