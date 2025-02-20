@@ -1,23 +1,25 @@
-import { useState } from "react";
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 
-function FirstForm({ signType }) {
-  const [dob, setDob] = useState(" ");
-  const { handleNext, firstName, setFirstName } = useJobifyContext();
+function FirstForm() {
+  const { handleNext, signupMode, formData, handleChange } = useJobifyContext();
   return (
     <>
       <form className="w-full bg-white text-sm rounded-xl p-5 border-[1px] border-purple-300 ">
         <div className="grid grid-cols-1 md:gap-4 md:grid-cols-2 ">
           <input
             type="text"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            name="firstName"
+            value={formData[signupMode].firstName}
+            onChange={(e) => handleChange(e, signupMode)}
             className="shadow-md rounded-sm border  mb-6 border-purple-900 px-3 py-2"
             placeholder="First Name"
             required
           />
           <input
             type="text"
+            name="lastName"
+            value={formData[signupMode].lastName}
+            onChange={(e) => handleChange(e, signupMode)}
             placeholder="Last Name"
             required
             className="shadow-md rounded-sm border mb-6 border-purple-900 py-2 px-3 "
@@ -27,29 +29,43 @@ function FirstForm({ signType }) {
         <div className="grid grid-cols-1 md:gap-4 md:grid-cols-2">
           <input
             type="phone"
+            name="phone"
+            value={formData[signupMode].phone}
+            onChange={(e) => handleChange(e, signupMode)}
             required
             className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
             placeholder="Phone number"
           />
           <input
             type="email"
+            name="email"
+            value={formData[signupMode].email}
+            onChange={(e) => handleChange(e, signupMode)}
             className=" w-full input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-            placeholder={signType === "seeker" ? `Email address` : `Work Email`}
+            placeholder={
+              signupMode === "seeker" ? `Email address` : `Work Email`
+            }
             required
           />
         </div>
 
-        {signType === "seeker" && (
+        {signupMode === "seeker" && (
           <>
             <div className="grid grid-cols-2 gap-4 mb-6">
               <input
                 type="text"
+                name="country"
+                value={formData.seeker.country}
+                onChange={(e) => handleChange(e, "seeker")}
                 placeholder="Country"
                 required
                 className="shadow-md rounded-sm border border-purple-900 px-3 py-2"
               />
               <input
                 type="text"
+                name="state"
+                value={formData.seeker.state}
+                onChange={(e) => handleChange(e, "seeker")}
                 required
                 placeholder="State"
                 className="shadow-md rounded-sm border border-purple-900 px-3"
@@ -63,13 +79,18 @@ function FirstForm({ signType }) {
                   type="date"
                   id="dob"
                   name="dob"
-                  value={dob}
+                  value={formData.seeker.dob}
                   required
-                  onChange={(e) => setDob(e.target.value)}
+                  onChange={(e) => handleChange(e, "seeker")}
                   className="w-full shadow-md rounded-sm border border-purple-900 py-2 mb-4 px-3"
                 />
               </div>
-              <select className="w-full shadow-md rounded-sm self-center border border-purple-900 py-2 mb-4 px-3">
+              <select
+                name="gender"
+                value={formData.seeker.gender}
+                onChange={(e) => handleChange(e, "seeker")}
+                className="w-full shadow-md rounded-sm self-center border border-purple-900 py-2 mb-4 px-3"
+              >
                 <option>Select gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -79,10 +100,15 @@ function FirstForm({ signType }) {
         )}
 
         <div className="grid grid-cols-1 md:gap-4 md:grid-cols-2 item-center justify-center">
-          {signType === "employer" && (
+          {signupMode === "employer" && (
             <div className="self-start">
               <label>Position in the Company</label>
-              <select className="w-full shadow-md rounded-sm self-center border border-purple-900 py-2 mb-4 px-3">
+              <select
+                name="position"
+                value={formData.employer.position}
+                onChange={(e) => handleChange(e, "employer")}
+                className="w-full shadow-md rounded-sm self-center border border-purple-900 py-2 mb-4 px-3"
+              >
                 <option disabled selected>
                   Select...
                 </option>
@@ -101,6 +127,9 @@ function FirstForm({ signType }) {
           <div className="md:mt-5">
             <input
               type="password"
+              name="password"
+              value={formData[signupMode].password}
+              onChange={(e) => handleChange(e, signupMode)}
               className=" w-full input-field mb-2 shadow-md self-center rounded-sm border border-purple-900 px-3 py-2"
               placeholder=" Create Password"
             />

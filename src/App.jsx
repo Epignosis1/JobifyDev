@@ -14,6 +14,7 @@ import SignupOption from "./pages/SignupOption";
 import Signup from "./pages/Signup";
 import Career from "./pages/Career";
 import JobifyProvider from "./components/context/JobifyProvider";
+import OTPInput from "./pages/Emailverification";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +26,16 @@ const router = createBrowserRouter(
         <Route path="career" element={<Career />} />
         <Route path="signUpOption" element={<SignupOption />} />
       </Route>
-      <Route path="signUpOption/:signType" element={<Signup />} />
+      <Route
+        path="signUpOption/:signupMode"
+        element={
+          <JobifyProvider>
+            <Signup />
+          </JobifyProvider>
+        }
+      />
       <Route path="login" element={<Login />} />
+      <Route path="/email" element={<OTPInput />} />
     </Route>
   )
 );

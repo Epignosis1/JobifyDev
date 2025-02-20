@@ -22,8 +22,7 @@ const SignupOption = () => {
   ];
   const navigate = useNavigate();
   const handleClick = (sign) => {
-    if (sign.mode === "seeker") navigate("/signUpOption/seeker");
-    else navigate("/signUpOption/employer");
+    navigate(`/signUpOption/${sign.mode}`);
   };
   return (
     <div>

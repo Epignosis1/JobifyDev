@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useJobifyContext } from "@/components/context/JobifyProvider";
-function SecondForm({ signType }) {
+import { useNavigate } from "react-router-dom";
+function SecondForm() {
   const [fileName, setFileName] = useState("Choose file");
   const [fileUrl, setFileUrl] = useState(null);
-  const { workRef, isInactive } = useJobifyContext();
+  const navigate = useNavigate();
+  const { workRef, isInactive, signupMode, formData, handleChange } =
+    useJobifyContext();
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -13,10 +16,16 @@ function SecondForm({ signType }) {
       setFileUrl(fileBlobUrl);
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    navigate("/email");
+  };
   return (
     <>
-      {signType === "seeker" ? (
+      {signupMode === "seeker" ? (
         <form
+          onSubmit={handleSubmit}
           ref={workRef}
           className={`w-full border-[1px] border-purple-200  ${
             isInactive ? "opacity-50 pointer-events-none" : ""
@@ -25,7 +34,12 @@ function SecondForm({ signType }) {
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6">
             <div>
               <label>Highest Qualification</label>
-              <select className="w-full shadow-md rounded-sm border border-purple-900 py-2 mb-4 px-3">
+              <select
+                name="qualification"
+                onChange={(e) => handleChange(e, "seeker")}
+                value={formData.seeker.qualification}
+                className="w-full shadow-md rounded-sm border border-purple-900 py-2 mb-4 px-3"
+              >
                 <option disabled selected>
                   Select...
                 </option>
@@ -42,7 +56,12 @@ function SecondForm({ signType }) {
 
             <div>
               <label>Years of Experience</label>
-              <select className="w-full shadow-md rounded-sm border border-purple-900 py-2 mb-4 px-3">
+              <select
+                name="experience"
+                value={formData.seeker.experience}
+                onChange={(e) => handleChange(e, "seeker")}
+                className="w-full shadow-md rounded-sm border border-purple-900 py-2 mb-4 px-3"
+              >
                 {Array.from({ length: 20 }, (_, i) => (
                   <option key={i}>{i + 1}</option>
                 ))}
@@ -97,6 +116,9 @@ function SecondForm({ signType }) {
             <div>
               <label>Company Name</label>
               <input
+                name="companyName"
+                value={formData.employer.companyName}
+                onChange={(e) => handleChange(e, "employer")}
                 className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
                 type="text"
                 required
@@ -105,7 +127,12 @@ function SecondForm({ signType }) {
 
             <div>
               <label>Industry</label>
-              <select className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2">
+              <select
+                name="industry"
+                value={formData.employer.industry}
+                onChange={(e) => handleChange(e, "employer")}
+                className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
+              >
                 <option disabled selected>
                   Select
                 </option>
@@ -121,7 +148,12 @@ function SecondForm({ signType }) {
 
             <div>
               <label>Number of Employees</label>
-              <select className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2">
+              <select
+                name="employees"
+                value={formData.employer.employees}
+                onChange={(e) => handleChange(e, "employer")}
+                className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
+              >
                 <option disabled selected>
                   Select
                 </option>
@@ -136,7 +168,12 @@ function SecondForm({ signType }) {
             </div>
             <div>
               <label>Type of Employer</label>
-              <select className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2">
+              <select
+                name="typeOfEmployer"
+                value={formData.employer.typeOfEmployer}
+                onChange={(e) => handleChange(e, "employer")}
+                className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
+              >
                 <option disabled selected>
                   Select
                 </option>
@@ -144,33 +181,23 @@ function SecondForm({ signType }) {
                 <option>Recruitmeant Agency</option>
               </select>
             </div>
-
-            <div>
-              <label>Email</label>
-              <input
-                type="email"
-                required
-                className="w-full grid input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-              />
-            </div>
-
-            <div>
-              <label>Phone Number</label>
-              <input
-                type="phone"
-                className=" w-full input-field mb-6 shadow-md rounded-sm border border-purple-900 px-3 py-2"
-              />
-            </div>
           </div>
 
           <label>Address</label>
           <textarea
+            name="address"
+            value={formData.employer.address}
+            onChange={(e) => handleChange(e, "employer")}
             rows={5}
             cols={30}
             className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
           />
 
-          <button className="p-4 w-full mt-4 md:w-fit bg-purple-950 text-white py-2 rounded-sm hover:bg-purple-800 transition duration-300">
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="p-4 w-full mt-4 md:w-fit bg-purple-950 text-white py-2 rounded-sm hover:bg-purple-800 transition duration-300"
+          >
             Create your Account
           </button>
         </form>
