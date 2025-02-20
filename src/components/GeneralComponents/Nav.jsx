@@ -22,7 +22,7 @@ function Nav() {
       </ul>
 
       {isOpen && (
-        <div className="  shadow-xl font-semibold bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-10 z-[2000]">
+        <div className="  shadow-xl font-semibold bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000]">
           <NavLinks />
         </div>
       )}
