@@ -1,4 +1,4 @@
-import SignOptbtn from "@/components/SignOptbtn";
+import SignOptbtn from "@/components/FormComponents/SignOptbtn";
 import { useNavigate } from "react-router-dom";
 
 const SignupOption = () => {

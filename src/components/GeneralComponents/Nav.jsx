@@ -12,7 +12,7 @@ function Nav() {
   }, [location]);
 
   return (
-    <header className="flex items-center justify-between  py-2 w-full px-6 md:px-8 bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] shadow-md">
+    <header className="flex items-center justify-between  py-2 w-full px-6 md:px-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] shadow-md">
       <Link to="/">
         <Logo />
       </Link>
@@ -22,7 +22,7 @@ function Nav() {
       </ul>
 
       {isOpen && (
-        <div className="  shadow-xl font-semibold bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000]">
+        <div className="  shadow-xl font-semibold bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000]">
           <NavLinks />
         </div>
       )}

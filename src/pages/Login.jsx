@@ -1,56 +1,65 @@
-import Logo from "@/components/GeneralComponents/Logo";
 import Continue from "@/components/LoginComponent/Continue";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Login() {
-	return (
-		<div>
-			<div className="flex ">
-				<button className="shadow-md m-3 p-2 rounded-lg">
-					<NavLink to="/">&larr; back</NavLink>
-				</button>
-			</div>
-			<h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
-				Log in to your account
-			</h2>
-			<div className="flex bg-gradient-to-tr from-[var(--dark-purple)] to-[var(--light-purple)] flex-col py-10  rounded-xl md:w-[500px] w-[400px]  mx-auto">
-				<div className="flex justify-center items-center mb-5">
-					<Logo />
-				</div>
-				<form className="grid gap-y-8 mx-5 grid-cols-1 ">
-					<input
-						type="email"
-						className=" focus:outline-none focus:ring-2 focus:ring-gray-300 p-2 rounded"
-						placeholder="Email address:"
-					/>
-					<input
-						type="password"
-						className="focus:outline-none focus:ring-2 focus:ring-gray-300 p-2 rounded "
-						placeholder="Password:"
-					/>
-					<button
-						className="bg-[var(--primary-orange)] text-[var(--dark-purple)] rounded py-2 "
-						type="submit">
-						Login
-					</button>
-				</form>
+  const navigate = useNavigate();
+  return (
+    <div className="bg-gray-100 h-[100vh]">
+      <div className="flex ">
+        <button
+          onClick={() => navigate(-1)}
+          className="bg-white shadow-md m-3 p-2 rounded-lg"
+        >
+          &larr; back
+        </button>
+      </div>
+      <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
+        Log in to your account
+      </h2>
+      <div className="flex border bg-white border-gray-200 border-opacity-70  shadow-lg  flex-col py-6  rounded-xl md:w-[500px] w-[90%]  mx-auto">
+        <form className="grid gap-y-2  mx-5 grid-cols-1 ">
+          <>
+            <label className="text-sm font-medium">Email address</label>
+            <input
+              type="email"
+              className=" border focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded"
+            />
+          </>
+          <>
+            <label className="font-medium text-sm mt-[20px]">Password</label>
+            <input
+              type="password"
+              className="border focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
+            />
+          </>
+          <button
+            className="bg-black mt-[20px] text-sm text-white rounded-sm py-[8px] "
+            type="submit"
+          >
+            Log in
+          </button>
+        </form>
 
-				<a className="mt-3 mx-5 text-orange-400 text-sm"> Forget password?</a>
-			</div>
+        <a className="mt-3 mt-[20px] mx-5 text-[var(--light-purple)] text-sm">
+          {" "}
+          Forgot your password?
+        </a>
+      </div>
 
-			<div>
-				<Continue Logo="/Google.svg" Text="Google" />
-				<Continue Logo="/Facebook.svg" Text="Facebook" />
-			</div>
-			<p className="text-center text-sm">
-				New to Jobify?{" "}
-				<NavLink
-					to="/Signup"
-					className="text-[var(--primary-orange)] cursor-pointer font-semibold">
-					Join now
-				</NavLink>
-			</p>
-		</div>
-	);
+      <div>
+        <Continue Logo="/Google.svg" Text="Google" />
+        <Continue Logo="/Facebook.svg" Text="Facebook" />
+      </div>
+      <p className="text-center text-sm">
+        New to Jobify?{" "}
+        <NavLink
+          to="/Signup"
+          className="text-[var(--light-purple)] cursor-pointer font-semibold"
+        >
+          Join now
+        </NavLink>
+      </p>
+    </div>
+  );
 }
 export default Login;

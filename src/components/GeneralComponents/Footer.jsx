@@ -5,7 +5,7 @@ function Footer() {
         Remain informed, maintain your lead
       </p>
 
-      <ul className="flex flex-col bg-gradient-to-r from-[#2A033F] to-[#7B1FA2] py-4 items-center md:flex-row justify-center gap-4 ">
+      <ul className="flex flex-col bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] py-4 items-center md:flex-row justify-center gap-4 ">
         <li className="md:ml-5">
           <a className="text-white text-xs">Apply for Job</a>
         </li>
