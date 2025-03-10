@@ -47,6 +47,7 @@ function JobifyProvider({ children }) {
 
   const { formData, isInactive } = state;
   const workRef = useRef(null);
+  const helpRef = useRef(null);
 
   const { signupMode } = useParams();
   const handleNext = (e) => {
@@ -69,6 +70,7 @@ function JobifyProvider({ children }) {
     <JobifyContext.Provider
       value={{
         workRef,
+        helpRef,
         isInactive,
         handleNext,
         signupMode,

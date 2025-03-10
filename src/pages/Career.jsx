@@ -1,5 +1,3 @@
-import Banner from "@/components/HomeComponents/Banner";
-
 function Career() {
   const careers = [
     {
@@ -68,16 +66,25 @@ function Career() {
   ];
   return (
     <div>
-      <div className="bg-[url('/career.avif')] bg-cover bg-center h-[60vh] w-full text-center flex justify-center ">
+      <div className="bg-[url('/blue.jpg')] bg-cover bg-center h-[50vh] w-full text-center flex justify-center ">
         <h2 className="lg:text-5xl text-3xl mt-40 font-bold ">
-          Explore different Careers and get insights{" "}
+          Explore{" "}
+          <span className="text-[var(--primary-orange)]">different</span>{" "}
+          Careers and get insights{" "}
         </h2>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2">
         {careers.map((career) => (
-          <div key={career.id} className="grid grid-cols-2 gap-4 m-8">
-            <img src={career.img} alt="careerimg" className="rounded w-fit" />
-            <div>
+          <div
+            key={career.id}
+            className="grid items-strech grid-cols-2 gap-4 m-8"
+          >
+            <img
+              src={career.img}
+              alt="careerimg"
+              className="rounded object-cover w-auto"
+            />
+            <div className="h-auto">
               <p className="text-2xl font-bold ">{career.header}</p>
               <p className="text-sm text-gray-500">{career.description}</p>
             </div>

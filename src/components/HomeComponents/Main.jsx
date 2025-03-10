@@ -1,6 +1,8 @@
 import GetStarted from "./GetStarted";
 import Explore from "./Explore";
 import Banner from "./Banner";
+import Faq from "./Faq";
+import Contact from "./Contact";
 
 function Main() {
   return (
@@ -20,6 +22,8 @@ function Main() {
         </button>
       </Banner>
       <Explore />
+      <Faq />
+      <Contact />
       <GetStarted />
     </div>
   );

@@ -12,23 +12,25 @@ function Nav() {
   }, [location]);
 
   return (
-    <header className="flex items-center justify-between  py-2 w-full px-6 md:px-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] shadow-md">
+    <header className="flex items-center lg:justify-around  justify-between p-4 w-full  md:p-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] shadow-md">
       <Link to="/">
         <Logo />
       </Link>
 
-      <ul className="items-center gap-3 hidden p-2 md:flex w-fit">
+      <ul className="items-center  hidden  md:flex w-fit">
         <NavLinks />
       </ul>
 
-      {isOpen && (
-        <div className="  shadow-xl font-semibold bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000]">
-          <NavLinks />
-        </div>
-      )}
+      <div
+        className={` transition-all duration-300 ease-in-out shadow-xl font-semibold bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000] ${
+          isOpen ? "translate-y-0 opacity-100" : "-transkate-y-full opacity-0"
+        }`}
+      >
+        <NavLinks />
+      </div>
 
       <button
-        className=" transition-all focus-none; duration-3000 ease-in-out text-2xl md:hidden text-white w-2"
+        className=" transition-all duration-9000 focus-none  ease-in-out text-2xl md:hidden text-white w-2"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <FiX /> : <FiMenu />}
