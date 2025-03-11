@@ -6,7 +6,7 @@ import Contact from "./Contact";
 
 function Main() {
   return (
-    <div>
+    <div className="relative overflow-hidden">
       <Banner />
 
       <Explore />
