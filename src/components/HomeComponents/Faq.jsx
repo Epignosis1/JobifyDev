@@ -8,6 +8,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Motion from "./Motion";
 
 const Faq = () => {
   const { helpRef } = useJobifyContext();
@@ -19,13 +20,14 @@ const Faq = () => {
     }
   }, [location, helpRef]);
   return (
-    <div className=" my-[80px] w-11/12 mx-auto" id="faq" ref={helpRef}>
+    <Motion className=" my-[80px] w-11/12 mx-auto" id="faq" ref={helpRef}>
       <div className="relative mt-5">
         <img src="/faq.svg" alt="about-hero-img" className="rounded-t-xl" />
         <motion.p
           className="text-base lg:text-xl font-medium px-4 absolute bottom-2 -right-2 bg-sub rounded-r-full shadow-md text-white"
           initial={{ x: "-200%" }}
-          animate={{ x: 0 }}
+          whileInView={{ x: 0 }}
+          viewport={{ once: true }}
         >
           Frequently asked questions
         </motion.p>
@@ -76,7 +78,7 @@ const Faq = () => {
           </AccordionItem>
         </Accordion>
       </div>
-    </div>
+    </Motion>
   );
 };
 

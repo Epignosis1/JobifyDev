@@ -22,8 +22,10 @@ function Nav() {
       </ul>
 
       <div
-        className={` transition-all duration-300 ease-in-out shadow-xl font-semibold bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000] ${
-          isOpen ? "translate-y-0 opacity-100" : "-transkate-y-full opacity-0"
+        className={` transition-all duration-300 ease-in-out shadow-xl font-semibold bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] w-full justify-center flex flex-col md:text-lg left-0 items-center gap-8  py-6 absolute top-14 z-[2000]  ${
+          isOpen
+            ? "opacity-100 translate-y-0 "
+            : " opacity-0 -translate-y-full  pointer-events-none"
         }`}
       >
         <NavLinks />

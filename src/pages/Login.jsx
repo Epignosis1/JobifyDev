@@ -1,5 +1,6 @@
 import Continue from "@/components/LoginComponent/Continue";
 import { NavLink, useNavigate } from "react-router-dom";
+import { ChevronLeft } from "lucide-react";
 
 function Login() {
   const navigate = useNavigate();
@@ -10,7 +11,8 @@ function Login() {
           onClick={() => navigate(-1)}
           className="bg-white shadow-md m-3 p-2 rounded-lg"
         >
-          &larr; back
+          <ChevronLeft className="h-4 inline w-4 shrink-0 text-muted-foreground transition-transform duration-200" />{" "}
+          back
         </button>
       </div>
       <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
