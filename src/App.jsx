@@ -6,10 +6,8 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-// import Signup from "./pages/Signup";
 import Rootlayout from "./Layout/Rootlayout";
 import About from "./pages/About";
-import SignupOption from "./pages/SignupOption";
 import Signup from "./pages/Signup";
 import Career from "./pages/Career";
 import JobifyProvider from "./components/context/JobifyProvider";
@@ -22,16 +20,8 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="career" element={<Career />} />
-        <Route path="signUpOption" element={<SignupOption />} />
       </Route>
-      <Route
-        path="signUpOption/:signupMode"
-        element={
-          <JobifyProvider>
-            <Signup />
-          </JobifyProvider>
-        }
-      />
+      <Route path="signUp" element={<Signup />} />
       <Route path="login" element={<Login />} />
       <Route path="/email" element={<OTPInput />} />
     </Route>

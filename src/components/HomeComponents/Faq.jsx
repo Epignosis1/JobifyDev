@@ -20,8 +20,8 @@ const Faq = () => {
     }
   }, [location, helpRef]);
   return (
-    <Motion className=" my-[80px] w-11/12 mx-auto" id="faq" ref={helpRef}>
-      <div className="relative mt-5">
+    <Motion className=" my-[80px] w-11/12 mx-auto" ref={helpRef}>
+      <div className="relative mt-5 " id="faq">
         <img src="/faq.svg" alt="about-hero-img" className="rounded-t-xl" />
         <motion.p
           className="text-base lg:text-xl font-medium px-4 absolute bottom-2 -right-2 bg-sub rounded-r-full shadow-md text-white"

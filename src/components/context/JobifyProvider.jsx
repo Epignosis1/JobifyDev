@@ -1,36 +1,17 @@
 import { useContext, createContext, useRef, useReducer } from "react";
-import { useParams } from "react-router-dom";
 
 const JobifyContext = createContext();
 const initialState = {
   formData: {
-    seeker: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      password: "",
-      country: "",
-      state: "",
-      dob: "",
-      gender: "",
-      qualification: "",
-      experience: "",
-    },
-    employer: {
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      password: "",
-      position: "",
-      address: "",
-      companyName: "",
-      industry: "",
-      employees: "",
-      typeOfEmployer: "",
-    },
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    gender: "",
+    qualification: "",
+    experience: "",
   },
+
   isInactive: true,
 };
 
@@ -44,36 +25,25 @@ function reductionFunction(state, action) {
 }
 function JobifyProvider({ children }) {
   const [state, dispatch] = useReducer(reductionFunction, initialState);
-
   const { formData, isInactive } = state;
-  const workRef = useRef(null);
   const helpRef = useRef(null);
 
-  const { signupMode } = useParams();
-  const handleNext = (e) => {
-    e.preventDefault();
-    dispatch({ type: "next" });
-    workRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  function handleChange(e, signupMode) {
+  function handleChange(e) {
     const { name, value } = e.target;
     dispatch({
       type: "formDataUpdate",
       payload: {
         ...formData,
-        [signupMode]: { ...formData[signupMode], [name]: value },
+        [name]: value,
       },
     });
   }
   return (
     <JobifyContext.Provider
       value={{
-        workRef,
         helpRef,
         isInactive,
-        handleNext,
-        signupMode,
+
         formData,
         handleChange,
       }}

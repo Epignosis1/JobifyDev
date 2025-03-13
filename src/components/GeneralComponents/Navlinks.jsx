@@ -67,7 +67,7 @@ function NavLinks() {
         </Link>
       </li>
       <li className="bg-[#F69D1D] py-1 text-black lg:px-[40px] rounded-lg lg:py-4 lg:rounded-2xl  list-none text-sm lg:text-base w-11/12 md:w-2/12 text-center mx-2">
-        <Link to="/signUpOption" className="block ]">
+        <Link to="/signUp" className="block">
           Signup
         </Link>
       </li>
