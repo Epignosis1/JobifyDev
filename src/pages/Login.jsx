@@ -1,18 +1,20 @@
-import Continue from "@/components/LoginComponent/Continue";
 import { NavLink, useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
+import { useJobifyContext } from "@/components/context/JobifyProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Login() {
   const navigate = useNavigate();
+  const { passwordVisibilty, handlePasswordVisibility } = useJobifyContext();
   return (
     <div className="bg-gray-100 h-[100vh]">
       <div className="flex ">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/")}
           className="bg-white shadow-md m-3 p-2 rounded-lg"
         >
           <ChevronLeft className="h-4 inline w-4 shrink-0 text-muted-foreground transition-transform duration-200" />{" "}
-          back
+          Back
         </button>
       </div>
       <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
@@ -29,10 +31,18 @@ function Login() {
           </>
           <>
             <label className="font-medium text-sm mt-[20px]">Password</label>
-            <input
-              type="password"
-              className="border focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
-            />
+            <div className="relative">
+              <input
+                type={passwordVisibilty ? "password" : "text"}
+                className="border w-full focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
+              />
+              <button
+                className="absolute top-3 right-2"
+                onClick={handlePasswordVisibility}
+              >
+                {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
           </>
           <button
             className="bg-black mt-[20px] text-sm text-white rounded-sm py-[8px] "
@@ -49,8 +59,12 @@ function Login() {
       </div>
 
       <div>
-        <Continue Logo="/Google.svg" Text="Google" />
-        <Continue Logo="/Facebook.svg" Text="Facebook" />
+        <div className="flex  gap-x-8 items-center text-[#74737e] w-[400px] mx-auto my-4 justify-center border border-gray-900 bg-white py-2 border-opacity-10 rounded-full ">
+          <div>
+            <img src="/Google.svg" className=" w-7 " />
+          </div>
+          <p className="text-sm">Continue with Google</p>
+        </div>
       </div>
       <p className="text-center text-sm">
         New to Jobify?{" "}

@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const About = () => {
   const data = [
@@ -53,9 +54,12 @@ const About = () => {
       instagram: "https://instagram.com",
     },
   ];
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 my-[120px]">
       <div className="w-11/12 mx-auto text-white mt-5">
         <div className="relative overflow-hidden">
           <img
@@ -86,7 +90,7 @@ const About = () => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col md:flex-row gap-4 items-center px-5 py-5"
+            className="flex flex-col my-[80px] md:flex-row gap-4 items-center px-5 py-5"
           >
             <img
               src={item.image}
@@ -98,14 +102,18 @@ const About = () => {
                 item.order ? "md:order-1" : ""
               } md:w-6/12 text-center`}
             >
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="text-base">{item.description}</p>
+              <h3 className="text-xl lg:text-3xl  font-semibold">
+                {item.title}
+              </h3>
+              <p className="lg:text-lg">{item.description}</p>
             </div>
           </div>
         ))}
       </div>
       <div className="w-full text-center">
-        <p className="px-4 bg-main w-fit mx-auto text-white">Our Team</p>
+        <p className="px-4 bg-main w-fit mx-auto text-xl lg:text-3xl text-white">
+          Our Team
+        </p>
         <p className="bg-primaryOrange px-5 md:px-10 pt-2 pb-4">
           Our team is devoted to improving your recruiting and career
           development process by concentrating on your particular requirements

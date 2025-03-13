@@ -1,13 +1,20 @@
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
 
 function Form() {
   const navigate = useNavigate();
-  const [passwordVisibilty, setPasswordVisibilty] = useState(false);
-  const { formData, handleChange } = useJobifyContext();
-  const { password, firstName } = formData;
+
+  const {
+    formData,
+    handleChange,
+    passwordVisibilty,
+    handlePasswordVisibility,
+  } = useJobifyContext();
+  console.log(handlePasswordVisibility);
+  console.log(handleChange);
+  console.log(formData);
+  const { password } = formData;
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
@@ -15,7 +22,7 @@ function Form() {
   };
 
   return (
-    <div className="mt-[30px]">
+    <div className="mt-[20px]">
       <h2 className="text-2xl text-center font-semibold">
         Create a your Account
       </h2>
@@ -60,10 +67,7 @@ function Form() {
               />
               <button
                 className="absolute top-3 right-2"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setPasswordVisibilty(!passwordVisibilty);
-                }}
+                onClick={handlePasswordVisibility}
               >
                 {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
               </button>

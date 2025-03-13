@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function Career() {
   const careers = [
     {
@@ -64,10 +66,13 @@ function Career() {
         "Psychology is the scientific study of the mind and behavior. It explores how people think, feel, and act in different situations, aiming to understand and improve mental health, decision-making, and human interactions.",
     },
   ];
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div>
-      <div className="bg-[url('/blue.jpg')] bg-cover bg-center h-[50vh] w-full text-center flex justify-center ">
-        <h2 className="lg:text-5xl text-3xl mt-40 font-bold ">
+      <div className="bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)]  h-[50vh] w-full text-center flex justify-center ">
+        <h2 className="lg:text-5xl text-3xl mt-40 text-white font-bold ">
           Explore{" "}
           <span className="text-[var(--primary-orange)]">different</span>{" "}
           Careers and get insights{" "}

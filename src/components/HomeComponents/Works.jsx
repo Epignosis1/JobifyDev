@@ -6,6 +6,7 @@ import {
   ClipboardCheck,
   CheckCircle,
 } from "lucide-react";
+import Motion from "./Motion";
 
 function Works() {
   const steps = [
@@ -17,7 +18,7 @@ function Works() {
     {
       icon: FileText,
       text: "Complete your profile",
-      description: "Upload yoour resume and fill in work experience",
+      description: "Upload your resume and fill in work experience",
     },
     {
       icon: Search,
@@ -41,27 +42,29 @@ function Works() {
     },
   ];
   return (
-    <section className="  my-[120px]">
-      <div className=" max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">
-          How it <span className="text-blue-800">works</span>
-        </h2>
-        <div className=" w-[400px]  md:w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-          {steps.map(({ icon: Icon, text, description }, index) => (
-            <div
-              className="flex border border-gray-200 items-start   gap-4 p-8 bg-white shadow-md rounded-lg"
-              key={index}
-            >
-              <Icon size={36} className=" basis-1/5 text-blue-500" />
-              <div>
-                <h3 className="text-lg font-semibold">{text}</h3>
-                <p className="text-gray-600">{description}</p>
+    <Motion>
+      <section className="  my-[120px]">
+        <div className=" max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">
+            How it <span className="text-blue-800">works</span>
+          </h2>
+          <div className=" w-[400px]  md:w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {steps.map(({ icon: Icon, text, description }, index) => (
+              <div
+                className="flex border border-gray-200 items-start   gap-4 p-8 bg-white shadow-md rounded-lg"
+                key={index}
+              >
+                <Icon size={36} className=" basis-1/5 text-blue-500" />
+                <div className="flex flex-col gap-1">
+                  <h3 className="text-lg font-semibold">{text}</h3>
+                  <p className="text-gray-600">{description}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Motion>
   );
 }
 

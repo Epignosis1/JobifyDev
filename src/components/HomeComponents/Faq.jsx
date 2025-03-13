@@ -25,7 +25,7 @@ const Faq = () => {
         <div className="relative mt-5 " id="faq">
           <img src="/faq.svg" alt="about-hero-img" className="rounded-t-xl" />
           <motion.div
-            className="text-xl lg:text-2xl font-medium px-10 absolute bottom-2 md:right-100 right-0  lg:text-lg bg-sub rounded-r-full shadow-md"
+            className="text-xl text-white lg:text-2xl font-medium px-10 absolute bottom-2 md:right-100 right-0  lg:text-lg bg-sub rounded-r-full shadow-md"
             initial={{ x: "-200%" }}
             animate={{ x: 0 }}
           >

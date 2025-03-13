@@ -61,12 +61,12 @@ function NavLinks() {
           faq
         </a>
       </li>
-      <li className="bg-[#F69D1D] py-1 lg:px-[40px] lg:py-4 rounded-lg lg:rounded-2xl text-black list-none text-sm lg:text-base w-11/12 md:w-2/12 text-center mx-2">
+      <li className="bg-[#F69D1D] py-2 lg:px-[40px] lg:py-4 rounded-xl lg:rounded-2xl text-black list-none text-sm lg:text-base w-11/12 md:w-2/12 text-center mx-2">
         <Link to="/login" className="block ">
           Login
         </Link>
       </li>
-      <li className="bg-[#F69D1D] py-1 text-black lg:px-[40px] rounded-lg lg:py-4 lg:rounded-2xl  list-none text-sm lg:text-base w-11/12 md:w-2/12 text-center mx-2">
+      <li className="bg-[#F69D1D] py-2 text-black lg:px-[40px] rounded-xl lg:py-4 lg:rounded-2xl  list-none text-sm lg:text-base w-11/12 md:w-2/12 text-center mx-2">
         <Link to="/signUp" className="block">
           Signup
         </Link>
