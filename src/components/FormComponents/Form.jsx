@@ -14,8 +14,7 @@ function Form() {
     navigate("/email");
   };
 
- 
-
+  
   return (
     <div className="mt-[70px]">
       <h2 className="text-2xl text-center font-semibold">
@@ -70,10 +69,9 @@ function Form() {
                 {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
               </button>
 
-              <div className="text-red-600">
-                {password.lenght < 4 ? "Password must br greater than 4":""}
-                <div>
-              
+              {password && <div className='text-red-600 text-sm'>
+                {password.length < 5 ? "Password must be greater than 4":''}
+              </div>}
             </div>
           </div>
 
