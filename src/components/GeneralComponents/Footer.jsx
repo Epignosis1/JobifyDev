@@ -1,7 +1,7 @@
 function Footer() {
   return (
     <div className=" w-full">
-      <p className="text-center bg-[#F69D1D] mt-20 mx-auto p-4 w-11/12 md:w-1/2">
+      <p className="text-center bg-[#F69D1D]  mx-auto p-4 w-11/12 md:w-1/2">
         Remain informed, maintain your lead
       </p>
 

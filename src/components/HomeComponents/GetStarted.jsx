@@ -1,7 +1,8 @@
 import Motion from "./Motion";
-
+import { useNavigate } from "react-router-dom";
 function GetStarted() {
-	return (
+  const navigate = useNavigate();
+  return (
     <Motion>
       <div className="flex flex-col md:flex-row bg-gradient-to-br from-[var(--dark-purple)] to-[var(--light-purple)]  mt-6 items-center p-8 justify-center text-center gap-8 h-auto">
         <div>
@@ -12,8 +13,11 @@ function GetStarted() {
             <span className="text-[--primary-orange]">relatable</span> jobs
           </h2>
 
-          <button className="bg-[--primary-orange] py-2 px-2  mt-6 rounded">
-            Get started
+          <button
+            onClick={() => navigate("/signup")}
+            className="bg-[--primary-orange] py-2 px-2  mt-6 rounded"
+          >
+            Get started now
           </button>
         </div>
 

@@ -1,10 +1,14 @@
 import Motion from "./Motion";
+import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 function Banner() {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] ">
       <Motion>
-        <div className=" gap-4 p-8 text-white  h-[70vh] flex flex-col justify-center text-center">
+        <div className=" gap-4 p-8 text-white  h-[80vh] flex flex-col justify-center text-center">
           <h1 className="md:text-6xl text-3xl font-semibold">
             Find new{" "}
             <span className="text-[var(--primary-orange)]">Employment</span>{" "}
@@ -14,9 +18,21 @@ function Banner() {
             Create an account, complete your profile and wait for the
             appropriate oppourtunities
           </p>
-          <button className="bg-[var(--primary-orange)] mt-4 w-32 mx-auto text-black py-2 rounded">
-            Explore
-          </button>
+          <div className=" flex items-center gap-8 mt-4 justify-center">
+            <button
+              onClick={() => navigate("/signup")}
+              className="bg-[var(--primary-orange)] p-4 flex  text-black rounded-xl"
+            >
+              Get started <ArrowRight size={24} />
+            </button>
+            <a
+              onClick={() => navigate("/about")}
+              className="text-base cursor-pointer font-medium block underline underline-offset-[6px] text-white"
+            >
+              {" "}
+              Learn more{" "}
+            </a>
+          </div>
         </div>
       </Motion>
     </div>

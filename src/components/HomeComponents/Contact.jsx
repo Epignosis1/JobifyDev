@@ -17,7 +17,7 @@ function Contact() {
     <Motion>
       <div
         ref={contactRef}
-        className="flex my-[50px] p-8 w-[90vw] lg:h-[100vh] rounded-3xl lg:flex-row m-auto flex-col items-center gap-6 bg-gradient-to-bl from-[var(--dark-purple)] to-[var(--light-purple)]"
+        className="flex my-[120px] p-8 w-[90vw] lg:h-[100vh] rounded-3xl lg:flex-row m-auto flex-col items-center gap-6 bg-gradient-to-bl from-[var(--dark-purple)] to-[var(--light-purple)]"
         id="contact"
       >
         <div className="flex basis-1/2 flex-col gap-4 lg:gap-8 lg:items-start items-center ">
