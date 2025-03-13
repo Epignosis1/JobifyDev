@@ -8,7 +8,7 @@ function Banner() {
   return (
     <div className="bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] ">
       <Motion>
-        <div className=" gap-4 pt-[130px] text-white  h-[75vh] flex flex-col  text-center">
+        <div className=" gap-4 pt-[180px] text-white  h-[80vh] flex flex-col  text-center">
           <h1 className="md:text-6xl text-3xl font-semibold">
             Find new{" "}
             <span className="text-[var(--primary-orange)]">Employment</span>{" "}

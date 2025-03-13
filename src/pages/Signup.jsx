@@ -9,7 +9,7 @@ const Signup = () => {
       <div className="flex ">
         <button
           onClick={() => navigate("/")}
-          className="bg-white  shadow-md fixed m-3 p-2 rounded-lg"
+          className="bg-white fixed left-0 top-0 z-50 shadow-md  m-3 p-2 rounded-lg"
         >
           <ChevronLeft className="h-4 inline w-4 shrink-0 text-muted-foreground transition-transform duration-200" />{" "}
           Back

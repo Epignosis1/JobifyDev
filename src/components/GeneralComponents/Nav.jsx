@@ -12,7 +12,7 @@ function Nav() {
   }, [location]);
 
   return (
-    <header className=" flex items-center lg:justify-around  justify-between px-8 py-3 w-full  md:p-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] shadow-md">
+    <header className=" w-full fixed z-50 top-0 flex items-center lg:justify-around  justify-between px-8 py-3 w-full  md:p-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] shadow-md">
       <Link to="/">
         <Logo />
       </Link>

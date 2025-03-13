@@ -14,9 +14,8 @@ function Form() {
     navigate("/email");
   };
 
-  
   return (
-    <div className="mt-[70px]">
+    <div className="mt-[30px]">
       <h2 className="text-2xl text-center font-semibold">
         Create a your Account
       </h2>
@@ -69,9 +68,11 @@ function Form() {
                 {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
               </button>
 
-              {password && <div className='text-red-600 text-sm'>
-                {password.length < 5 ? "Password must be greater than 4":''}
-              </div>}
+              {password && (
+                <div className="text-red-600 text-sm">
+                  {password.length < 5 ? "Password must be greater than 4" : ""}
+                </div>
+              )}
             </div>
           </div>
 
