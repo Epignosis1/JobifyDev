@@ -41,12 +41,12 @@ function Works() {
     },
   ];
   return (
-    <section className=" my-[120px]">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-12">
+    <section className="  my-[120px]">
+      <div className=" max-w-6xl mx-auto text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12">
           How it <span className="text-blue-800">works</span>
         </h2>
-        <div className=" w-[400px]  md:w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className=" w-[400px]  md:w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {steps.map(({ icon: Icon, text, description }, index) => (
             <div
               className="flex border border-gray-200 items-start   gap-4 p-8 bg-white shadow-md rounded-lg"
