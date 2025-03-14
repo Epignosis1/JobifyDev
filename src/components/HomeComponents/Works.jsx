@@ -54,7 +54,10 @@ function Works() {
                 className="flex border border-gray-200 items-start   gap-4 p-8 bg-white shadow-md rounded-lg"
                 key={index}
               >
-                <Icon size={36} className=" basis-1/5 text-blue-500" />
+                <Icon
+                  size={36}
+                  className=" basis-1/5 font-bold text-blue-800"
+                />
                 <div className="flex flex-col gap-1">
                   <h3 className="text-lg font-semibold">{text}</h3>
                   <p className="text-gray-600">{description}</p>

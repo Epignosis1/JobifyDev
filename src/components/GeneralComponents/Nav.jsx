@@ -1,21 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Logo from "./Logo";
 import { Link, useLocation } from "react-router-dom";
 import NavLinks from "./Navlinks";
+import { useNavigate } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";
+import { useJobifyContext } from "../context/JobifyProvider";
 function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen, dispatch } = useJobifyContext();
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+    dispatch({ type: "navOpen", payload: false });
+  }, [location, dispatch]);
 
+  const handleTop = () => {
+    navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
     <header className=" w-full fixed z-50 top-0 flex items-center lg:justify-around  justify-between px-8 py-3 w-full  md:p-8 bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)] ">
-      <Link to="/">
+      <a onClick={handleTop}>
         <Logo />
-      </Link>
+      </a>
 
       <ul className="items-center  hidden  md:flex w-fit">
         <NavLinks />
@@ -33,7 +40,7 @@ function Nav() {
 
       <button
         className=" transition-all duration-9000 focus-none  ease-in-out text-2xl md:hidden text-white w-2"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => dispatch({ type: "navOpen", payload: !isOpen })}
       >
         {isOpen ? <FiX /> : <FiMenu />}
       </button>

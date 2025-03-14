@@ -14,6 +14,7 @@ const initialState = {
 
   isInactive: true,
   passwordVisibilty: false,
+  isOpen: false,
 };
 
 function reductionFunction(state, action) {
@@ -24,11 +25,13 @@ function reductionFunction(state, action) {
       return { ...state, formData: action.payload };
     case "password":
       return { ...state, passwordVisibilty: action.payload };
+    case "navOpen":
+      return { ...state, isOpen: action.payload };
   }
 }
 function JobifyProvider({ children }) {
   const [state, dispatch] = useReducer(reductionFunction, initialState);
-  const { formData, isInactive, passwordVisibilty } = state;
+  const { formData, isInactive, passwordVisibilty, isOpen } = state;
   const helpRef = useRef(null);
 
   function handlePasswordVisibility(e) {
@@ -51,7 +54,8 @@ function JobifyProvider({ children }) {
         helpRef,
         isInactive,
         passwordVisibilty,
-
+        isOpen,
+        dispatch,
         formData,
         handleChange,
         handlePasswordVisibility,

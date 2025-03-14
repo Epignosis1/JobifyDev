@@ -1,15 +1,17 @@
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useJobifyContext } from "../context/JobifyProvider";
 
 function NavLinks() {
   const location = useLocation();
   const navigate = useNavigate();
-
+  const { dispatch } = useJobifyContext();
   const handleMoveToHelp = () => {
     if (location.pathname === "/") {
       const faqSection = document.getElementById("faq");
-      console.log(faqSection);
+
       if (faqSection) {
         faqSection.scrollIntoView({ behavior: "smooth" });
+        dispatch({ type: "navOpen", payload: false });
       }
     } else {
       navigate("/#faq");
@@ -21,6 +23,7 @@ function NavLinks() {
 
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: "smooth" });
+        dispatch({ type: "navOpen", payload: false });
       }
     } else {
       navigate("/#contact");

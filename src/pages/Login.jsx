@@ -2,10 +2,14 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useEffect } from "react";
 
 function Login() {
   const navigate = useNavigate();
   const { passwordVisibilty, handlePasswordVisibility } = useJobifyContext();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div className="bg-gray-100 h-[100vh]">
       <div className="flex ">
