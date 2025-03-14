@@ -12,7 +12,6 @@ import Signup from "./pages/Signup";
 import Career from "./pages/Career";
 import JobifyProvider from "./components/context/JobifyProvider";
 import OTPInput from "./pages/Emailverification";
-import Scrolltotop from "./components/GeneralComponents/Scrolltotop";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,7 +33,6 @@ export default function App() {
       <JobifyProvider>
         <RouterProvider router={router} />
       </JobifyProvider>
-      <Scrolltotop />
     </>
   );
 }
