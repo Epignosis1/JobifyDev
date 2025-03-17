@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { signUpUser } from "@/authentication/appAuth.js";
 import { useState } from "react";
 
-function Form() {
+function SignForm() {
   // const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -118,4 +118,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default SignForm;

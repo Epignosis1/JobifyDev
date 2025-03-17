@@ -1,4 +1,4 @@
-import Form from "@/components/FormComponents/SignUpForm";
+import SignForm from "@/components/FormComponents/SignupForm";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { useEffect } from "react";
@@ -19,7 +19,7 @@ const Signup = () => {
           Back
         </button>
       </div>
-      <Form />
+      <SignForm />
     </div>
   );
 };
