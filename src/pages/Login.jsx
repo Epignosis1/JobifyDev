@@ -2,14 +2,32 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { login } from "@/authentication/appAuth";
+import Spinner from "@/components/GeneralComponents/Spinner";
+import { useLogin } from "@/authentication/useLogin";
+import { Toaster } from "react-hot-toast";
 
 function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("jonas@example.com");
+  const [password, setPassword] = useState("");
+
+  const { login, isLoading } = useLogin();
+
   const { passwordVisibilty, handlePasswordVisibility } = useJobifyContext();
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email || !password) return;
+    login({ email, password });
+    setEmail("");
+    setPassword("");
+  };
   return (
     <div className="bg-gray-100 h-[100vh]">
       <div className="flex ">
@@ -25,11 +43,18 @@ function Login() {
         Log in to your account
       </h2>
       <div className="flex border bg-white border-gray-200 border-opacity-70  shadow-lg  flex-col py-6  rounded-xl md:w-[500px] w-[90%]  mx-auto">
-        <form className="grid gap-y-2  mx-5 grid-cols-1 ">
+        <form
+          onSubmit={handleSubmit}
+          className="grid gap-y-2  mx-5 grid-cols-1 "
+        >
           <>
             <label className="text-sm font-medium">Email address</label>
             <input
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               type="email"
+              disabled={isLoading}
               className=" border focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded"
             />
           </>
@@ -37,8 +62,12 @@ function Login() {
             <label className="font-medium text-sm mt-[20px]">Password</label>
             <div className="relative">
               <input
-                type={passwordVisibilty ? "password" : "text"}
-                className="border w-full focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
+                name="password"
+                value={password}
+                disabled={isLoading}
+                onChange={(e) => setPassword(e.target.value)}
+                type={passwordVisibilty ? "text" : "password"}
+                className="border w-full text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
               />
               <button
                 className="absolute top-3 right-2"
@@ -47,12 +76,13 @@ function Login() {
                 {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
+            <Toaster />
           </>
           <button
-            className="bg-black mt-[20px] text-sm text-white rounded-sm py-[8px] "
+            className="bg-black item-center flex justify-center mt-[20px] text-sm text-white rounded-sm py-[8px] "
             type="submit"
           >
-            Log in
+            {isLoading ? <Spinner /> : "Log in"}
           </button>
         </form>
 

@@ -1,4 +1,4 @@
-import Form from "@/components/FormComponents/Form";
+import Form from "@/components/FormComponents/SignUpForm";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { useEffect } from "react";
