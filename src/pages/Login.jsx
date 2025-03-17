@@ -3,7 +3,7 @@ import { ChevronLeft } from "lucide-react";
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useEffect, useState } from "react";
-import { login } from "@/authentication/appAuth";
+
 import Spinner from "@/components/GeneralComponents/Spinner";
 import { useLogin } from "@/authentication/useLogin";
 import { Toaster } from "react-hot-toast";
