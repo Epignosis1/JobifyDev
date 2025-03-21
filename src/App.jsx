@@ -13,6 +13,10 @@ import Career from "./pages/Career";
 import JobifyProvider from "./components/context/JobifyProvider";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ui/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
+import Forget from "./pages/Forget";
+import Reset from "./pages/Reset";
+import Authlayout from "./Layout/Authlayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,8 +26,13 @@ const router = createBrowserRouter(
         <Route path="about" element={<About />} />
         <Route path="career" element={<Career />} />
       </Route>
-      <Route path="signUp" element={<Signup />} />
-      <Route path="login" element={<Login />} />
+      <Route element={<Authlayout />}>
+        <Route path="signUp" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="/forget" element={<Forget />} />
+        <Route path="/resetPassword" element={<Reset />} />
+      </Route>
+
       <Route
         path="dashboard"
         element={
@@ -38,6 +47,24 @@ const router = createBrowserRouter(
 export default function App() {
   return (
     <>
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          style: {
+            fontSize: "16px",
+            maxWidth: "500px",
+            padding: "16px 24px",
+          },
+        }}
+      />
       <JobifyProvider>
         <RouterProvider router={router} />
       </JobifyProvider>

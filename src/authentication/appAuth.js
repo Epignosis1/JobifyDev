@@ -1,23 +1,19 @@
 import { supabase } from "@/supabaseClient";
 
-export async function signUpUser(signUpData) {
-  try {
-    const { data, error } = await supabase.auth.signUp({
-      email: signUpData.email,
-      password: signUpData.password,
-      options: {
-        data: {
-          first_name: signUpData.firstName,
-          last_name: signUpData.lastName,
-        },
+export async function signup({ email, password, firstName, lastName }) {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        firstName,
+        lastName,
       },
-    });
-    if (error) throw error;
-    return { success: true, data };
-  } catch (error) {
-    console.error("signUp error:", error.message);
-    return { success: false, error };
-  }
+    },
+  });
+  if (error) throw new Error(error.message);
+  console.log(data);
+  return data;
 }
 
 export async function login({ email, password }) {
@@ -27,7 +23,7 @@ export async function login({ email, password }) {
   });
 
   if (error) throw new Error(error.message);
-  return data;
+  return data.user;
 }
 
 export async function getCurrentUser() {
@@ -38,4 +34,29 @@ export async function getCurrentUser() {
   if (error) throw new error(error);
 
   return data?.user;
+}
+
+export async function logout() {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw new Error(error.message);
+}
+
+export async function signInWithGoogle() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "http://localhost:5173/dashboard",
+    },
+  });
+  if (error) throw new Error(error.message);
+}
+
+export async function forget({ email }) {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: "http://localhost:5173/resetPassword",
+  });
+  console.log(data);
+  if (error) {
+    throw new Error(error.message);
+  }
 }

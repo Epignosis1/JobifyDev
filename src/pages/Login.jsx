@@ -1,26 +1,29 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
+
 import { useJobifyContext } from "@/components/context/JobifyProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { useEffect, useState } from "react";
 
 import Spinner from "@/components/GeneralComponents/Spinner";
 import { useLogin } from "@/authentication/useLogin";
-import { Toaster } from "react-hot-toast";
+import { signInWithGoogle } from "@/authentication/appAuth";
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("jonas@example.com");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { login, isLoading } = useLogin();
+  const isFormValid = email && password;
+
+  const { login, isPending } = useLogin();
 
   const { passwordVisibilty, handlePasswordVisibility } = useJobifyContext();
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email || !password) return;
@@ -29,16 +32,7 @@ function Login() {
     setPassword("");
   };
   return (
-    <div className="bg-gray-100 h-[100vh]">
-      <div className="flex ">
-        <button
-          onClick={() => navigate("/")}
-          className="bg-white shadow-md m-3 p-2 rounded-lg"
-        >
-          <ChevronLeft className="h-4 inline w-4 shrink-0 text-muted-foreground transition-transform duration-200" />{" "}
-          Back
-        </button>
-      </div>
+    <>
       <h2 className="text-center text-2xl mt-10 mb-8 font-semibold ">
         Log in to your account
       </h2>
@@ -48,23 +42,27 @@ function Login() {
           className="grid gap-y-2  mx-5 grid-cols-1 "
         >
           <>
-            <label className="text-sm font-medium">Email address</label>
+            <label className="text-sm font-medium">
+              Email address <span className="text-red-600">*</span>
+            </label>
             <input
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
-              disabled={isLoading}
+              disabled={isPending}
               className=" border focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded"
             />
           </>
           <>
-            <label className="font-medium text-sm mt-[20px]">Password</label>
+            <label className="font-medium text-sm mt-[20px]">
+              Password <span className="text-red-600">*</span>
+            </label>
             <div className="relative">
               <input
                 name="password"
                 value={password}
-                disabled={isLoading}
+                disabled={isPending}
                 onChange={(e) => setPassword(e.target.value)}
                 type={passwordVisibilty ? "text" : "password"}
                 className="border w-full text-sm focus:outline-none focus:ring-2 focus:ring-gray-300 p-1 rounded "
@@ -76,28 +74,36 @@ function Login() {
                 {passwordVisibilty ? <FaEye /> : <FaEyeSlash />}
               </button>
             </div>
-            <Toaster />
           </>
           <button
-            className="bg-black item-center flex justify-center mt-[20px] text-sm text-white rounded-sm py-[8px] "
+            className={`${
+              isFormValid ? "bg-black" : "bg-gray-900 cursor-not-allowed"
+            } item-center flex justify-center mt-[20px] text-sm text-white rounded-sm py-[8px] `}
             type="submit"
+            disabled={!isFormValid}
           >
-            {isLoading ? <Spinner /> : "Log in"}
+            {isPending ? <Spinner /> : "Log in"}
           </button>
         </form>
 
-        <a className="mt-3 mt-[20px] mx-5 text-[var(--light-purple)] text-sm">
+        <a
+          onClick={() => navigate("/forget")}
+          className="mt-3 cursor-pointer mt-[20px] mx-5 text-[var(--light-purple)] text-sm"
+        >
           {" "}
           Forgot your password?
         </a>
       </div>
 
       <div>
-        <div className="flex  gap-x-8 items-center text-[#74737e] w-[400px] mx-auto my-4 justify-center border border-gray-900 bg-white py-2 border-opacity-10 rounded-full ">
-          <div>
-            <img src="/Google.svg" className=" w-7 " />
-          </div>
-          <p className="text-sm">Continue with Google</p>
+        <div className="flex justify-center items-center my-4">
+          <button
+            onClick={signInWithGoogle}
+            className="flex items-center justify-center w-full max-w-sm px-4 py-3 border border-gray-300 rounded-3xl shadow-sm text-sm font-meedium text-gray-700 bg-white hover:bg-gray-100"
+          >
+            <FcGoogle className="w-5 h-5 mr-2" />
+            Continue with Google
+          </button>
         </div>
       </div>
       <p className="text-center text-sm">
@@ -109,7 +115,7 @@ function Login() {
           Join now
         </NavLink>
       </p>
-    </div>
+    </>
   );
 }
 export default Login;
