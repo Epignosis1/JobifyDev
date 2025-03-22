@@ -44,14 +44,14 @@ function Works() {
   return (
     <Motion>
       <section className="  my-[120px]">
-        <div className="  m-4 text-center p-8 bg-gray-100 rounded-xl">
+        <div className="  m-4 text-center p-8 bg-gray-50 rounded-xl">
           <h2 className="text-3xl md:text-4xl mt-4 font-bold mb-12">
             How it <span className="text-blue-800">works</span>
           </h2>
-          <div className=" md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className=" md:w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {steps.map(({ icon: Icon, text, description }, index) => (
               <div
-                className=" flex h-[180px] flex-col  border border-gray-300  text-left gap-4 p-8 bg-white rounded-xl"
+                className=" flex h-[180px] flex-col shadow-md border border-gray-200  text-left gap-4 p-8 bg-white rounded-xl"
                 key={index}
               >
                 <div className="w-full  flex items-center justify-start gap-3">

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Logo from "./Logo";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import NavLinks from "./Navlinks";
 import { useNavigate } from "react-router-dom";
 import { FiX, FiMenu } from "react-icons/fi";

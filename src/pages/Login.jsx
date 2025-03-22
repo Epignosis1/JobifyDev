@@ -42,9 +42,7 @@ function Login() {
           className="grid gap-y-2  mx-5 grid-cols-1 "
         >
           <>
-            <label className="text-sm font-medium">
-              Email address <span className="text-red-600">*</span>
-            </label>
+            <label className="text-sm font-medium">Email address</label>
             <input
               name="email"
               value={email}
@@ -55,9 +53,7 @@ function Login() {
             />
           </>
           <>
-            <label className="font-medium text-sm mt-[20px]">
-              Password <span className="text-red-600">*</span>
-            </label>
+            <label className="font-medium text-sm mt-[20px]">Password</label>
             <div className="relative">
               <input
                 name="password"
@@ -99,7 +95,7 @@ function Login() {
         <div className="flex justify-center items-center my-4">
           <button
             onClick={signInWithGoogle}
-            className="flex items-center justify-center w-full max-w-sm px-4 py-3 border border-gray-300 rounded-3xl shadow-sm text-sm font-meedium text-gray-700 bg-white hover:bg-gray-100"
+            className="flex items-center justify-center w-full max-w-sm px-4 py-3 border border-gray-200 shadown-md rounded-3xl shadow-sm text-sm font-meedium text-gray-700 bg-white hover:bg-gray-100"
           >
             <FcGoogle className="w-5 h-5 mr-2" />
             Continue with Google
