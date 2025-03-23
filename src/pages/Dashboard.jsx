@@ -12,12 +12,12 @@ function Dashboard() {
   return (
     <div>
       <AppNav />
-      <div className=" h-[80vh] bg-purple-200 gap-6 pt-[100px] flex flex-col items-center   text-white font-medium text-center ">
-        <h1 className="text-4xl text-purple-700 font-bold">
+      <div className=" h-[80vh] gap-6 pt-[100px] flex bg-gradient-to-br from-[#6013ab] via-[#46008B] to-[#1B2095] flex-col items-center   text-white font-medium text-center ">
+        <h1 className="text-3xl px-4  font-bold">
           Explore and discover the right job for you{" "}
         </h1>
 
-        <form className="w-full bg-[#F3F4F63D] mt-6 py-6 bg-gradient-to-br from-[#6013ab] via-[#46008B] to-[#1B2095] flex flex-col gap-6 items-center ">
+        <form className="w-full bg-[#F3F4F63D] mt-6 py-6 b flex flex-col gap-6 items-center ">
           <input
             type="text"
             className="w-[90%] text-black border placeholder:text-sm  border-blue-700 rounded-sm text-base p-2"
