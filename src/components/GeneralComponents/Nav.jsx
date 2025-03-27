@@ -24,7 +24,7 @@ function Nav() {
         <Logo />
       </a>
 
-      <ul className="items-center  hidden  md:flex w-fit">
+      <ul className="items-center  hidden  lg:flex w-fit">
         <NavLinks />
       </ul>
 

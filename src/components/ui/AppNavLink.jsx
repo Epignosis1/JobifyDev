@@ -1,56 +1,66 @@
 import { NavLink } from "react-router-dom";
+import { FaPlusCircle, FaSearch, FaBuilding, FaUser } from "react-icons/fa";
 
 function AppNavLinks() {
   return (
     <>
-      <li className=" list-none mx-6">
-        <NavLink className="text-gray-500 font-semibold uppercase text-sm lg:text-base">
+      <li className=" list-none mx-6 flex flex-col gap-6">
+        <NavLink className="text-gray-700 flex items-center gap-2 font-medium  texte lg:text-base">
+          <div className="text-xl ">
+            <FaSearch />
+          </div>
           Search Jobs
         </NavLink>
+        <ul className="flex flex-col gap-6 ">
+          <li className=" list-none mx-7">
+            <NavLink
+              to="/about"
+              className="text-gray-700  font-light text-base lg:text-base text-nowrap"
+            >
+              Saved Jobs
+            </NavLink>
+          </li>
+          <li className=" list-none mx-7 ">
+            <a className="text-gray-700 cursor-pointer font-light  text-base lg:text-base text-nowrap">
+              Sent Applications
+            </a>
+          </li>
+          <li className=" list-none mx-7">
+            <a className="text-gray-700 md:mr-[200px]  cursor-pointer  font-light text-base lg:text-base">
+              Cover letters
+            </a>
+          </li>
+          <li className=" list-none mx-7  ">
+            <a className="text-gray-700 md:mr-[200px]  cursor-pointer  font-light text-base lg:text-base">
+              Documents
+            </a>
+          </li>
+          <li className=" list-none mt-6 ">
+            <a className="text-gray-700 md:mr-[200px] items-center flex gap-2 cursor-pointer  font-medium text- lg:text-base">
+              <div className="text-lg ml-1 ">
+                <FaPlusCircle />
+              </div>
+              Post your resume
+            </a>
+          </li>
+        </ul>
       </li>
 
-      <li className=" list-none mx-6">
-        <NavLink
-          to="/about"
-          className="text-gray-500 uppercase font-semibold text-sm lg:text-base text-nowrap"
-        >
-          Saved Jobs
-        </NavLink>
-      </li>
-      <li className=" list-none mx-6">
-        <a className="text-gray-500 cursor-pointer font-semibold uppercase text-sm lg:text-base text-nowrap">
-          Sent Applications
-        </a>
-      </li>
-      <li className=" list-none mx-6">
-        <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
-          Cover letters
-        </a>
-      </li>
-      <li className=" list-none mx-6">
-        <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
-          Documents
-        </a>
-      </li>
-      <li className=" list-none mx-6">
-        <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
-          Cvs
-        </a>
-      </li>
-
-      <div className="flex flex-col gap-8 border-t border-gray-300 pt-8">
-        <li className="list-none mx-6">
-          <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
+      <div className="flex flex-col gap-12 border-t border-gray-300 pt-8">
+        <li className="list-none mx-7">
+          <a className=" md:mr-[200px]  gap-2 flex items-center cursor-pointer  font-medium text- lg:text-base">
+            <div className="">
+              <FaBuilding />
+            </div>{" "}
             Find companies
           </a>
         </li>
-        <li className="list-none mx-6">
-          <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
-            Post a job
-          </a>
-        </li>
-        <li className="list-none mx-6">
-          <a className="text-gray-500 md:mr-[200px] uppercase cursor-pointer  font-semibold text-sm lg:text-base">
+
+        <li className="list-none mx-7">
+          <a className="text-blue-700 md:mr-[200px] flex items-center gap-2 cursor-pointer  font-medium text- lg:text-base">
+            <div>
+              <FaUser />
+            </div>
             My account
           </a>
         </li>

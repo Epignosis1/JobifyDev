@@ -1,13 +1,14 @@
-import { useJobifyContext } from "../context/JobifyProvider";
 import { FiX, FiMenu } from "react-icons/fi";
 import AppNavLinks from "./AppNavLink";
+import { useState } from "react";
 const AppNav = () => {
-  const { isOpen, dispatch } = useJobifyContext();
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
   return (
-    <div className="flex pb-4 justify-between border-b px-6 items-center  shadow-sm">
-      <img src="Group 281.png " className=" w-[140px]" />
+    <div className="flex  justify-between px-6 items-center  ">
+      <img src="Group 379.png " className=" w-[140px]" />
       <div
-        className={` mt-4 h-[100%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-8  py-8 absolute top-14 z-[2000]  ${
+        className={` mt-4 h-[100%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-6  py-8 absolute top-14 z-[2000]  ${
           isOpen
             ? "opacity-100 translate-y-0 "
             : "  opacity-0 -translate-y-1  pointer-events-none"
@@ -18,12 +19,12 @@ const AppNav = () => {
 
       <button
         className=" transition-all duration-9000 focus-none  ease-in-out text-2xl md:hidden text-white w-2"
-        onClick={() => dispatch({ type: "navOpen", payload: !isOpen })}
+        onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <FiX className="text-purple-900" />
+          <FiX className="text-[#00008B]" />
         ) : (
-          <FiMenu className="text-purple-900" />
+          <FiMenu className="text-[#00008B]" />
         )}
       </button>
     </div>

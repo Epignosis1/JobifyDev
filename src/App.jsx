@@ -17,6 +17,8 @@ import { Toaster } from "react-hot-toast";
 import Forget from "./pages/Forget";
 import Reset from "./pages/Reset";
 import Authlayout from "./Layout/Authlayout";
+import Joblist from "./pages/Joblist";
+import Applayout from "./Layout/Applayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,15 +34,17 @@ const router = createBrowserRouter(
         <Route path="/forget" element={<Forget />} />
         <Route path="/resetPassword" element={<Reset />} />
       </Route>
-
-      <Route
-        path="dashboard"
-        element={
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        }
-      />
+      <Route element={<Applayout />}>
+        <Route
+          path="dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="joblist" element={<Joblist />} />
+      </Route>
     </Route>
   )
 );
