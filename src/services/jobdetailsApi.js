@@ -1,12 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
-export const jobApi = async ({ jobTitle, location }) => {
-  const url = `https://jsearch.p.rapidapi.com/search?query=${encodeURIComponent(
-    jobTitle
-  )}%20jobs%20in%20${encodeURIComponent(
-    location
-  )}&page=1&num_pages=1&country=us&date_posted=all`;
+export const jobApiDetails = async ({ id }) => {
+  const url = `https://jsearch.p.rapidapi.com/job-details?job_id=${id}&country=us`;
+
   const options = {
     method: "GET",
     headers: {
@@ -17,22 +14,21 @@ export const jobApi = async ({ jobTitle, location }) => {
 
   const response = await fetch(url, options);
   const result = await response.json();
+  console.log(result);
 
   return result;
 };
 
-export const useJobApi = ({ jobTitle, location }) => {
+export const useJobApiDetails = ({ id }) => {
   const {
     isLoading,
-    data: jobResult,
+    data: jobDetailsResult,
     isError,
-    refetch,
   } = useQuery({
-    queryKey: ["storedJobs", jobTitle, location],
-    queryFn: () => jobApi({ jobTitle, location }),
-
+    queryKey: ["storedJobs", id],
+    queryFn: () => jobApiDetails({ id }),
     onError: (error) => toast.error(error.message),
   });
-
-  return { isLoading, jobResult, isError, refetch };
+  console.log(jobDetailsResult);
+  return { isLoading, jobDetailsResult, isError };
 };

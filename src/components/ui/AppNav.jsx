@@ -6,7 +6,7 @@ const AppNav = () => {
   console.log(isOpen);
   return (
     <div className="flex  justify-between px-6 items-center  ">
-      <img src="Group 379.png " className=" w-[140px]" />
+      <img src="Group 379.png " className=" w-[120px]" />
       <div
         className={` mt-4 h-[100%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-6  py-8 absolute top-14 z-[2000]  ${
           isOpen

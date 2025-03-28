@@ -19,6 +19,7 @@ import Reset from "./pages/Reset";
 import Authlayout from "./Layout/Authlayout";
 import Joblist from "./pages/Joblist";
 import Applayout from "./Layout/Applayout";
+import JobDetails from "./pages/JobDetails";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
           }
         />
         <Route path="joblist" element={<Joblist />} />
+        <Route path="joblist/:id" element={<JobDetails />} />
       </Route>
     </Route>
   )

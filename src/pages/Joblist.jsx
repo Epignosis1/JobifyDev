@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { Bookmark } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function JobList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,16 +12,32 @@ export default function JobList() {
   const jobTitle = searchParams.get("jobTitle");
   const location = searchParams.get("location");
   const jobsPerPage = 20;
-
-  const { jobResult } = useJobApi({
+  const navigate = useNavigate();
+  const { jobResult, isError, isLoading } = useJobApi({
     jobTitle,
     location,
   });
+  console.log(isError);
+  if (isError) {
+    return (
+      <p className="text-center text-red-600">
+        Error fetching jobs. Please try again later
+      </p>
+    );
+  }
+
+  if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;
+  const jobList = jobResult?.data || [];
+
+  if (jobList.length === 0) {
+    return <p className="text-center text-gray-600">No jobs found</p>;
+  }
+
   const startIndex = (currentPage - 1) * jobsPerPage;
   const endIndex = startIndex + jobsPerPage;
-  const currentJobs = jobResult.data.slice(startIndex, endIndex);
-  console.log(currentJobs);
-  const totalPages = Math.ceil(jobResult.data.length / jobsPerPage);
+  const currentJobs = jobList.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(jobList.length / jobsPerPage);
 
   return (
     <div className="relative">
@@ -28,12 +45,13 @@ export default function JobList() {
         <FaSearch size={16} /> {`${jobTitle} jobs in ${location}`}
       </button>
 
-      <p className="mx-4 mt-8 mb-4 text-sm">{jobResult.data.length} jobs</p>
+      <p className="mx-4 mt-8 mb-4 text-sm">{jobList.length} jobs</p>
       <div className="">
         {currentJobs.map((job) => (
           <div
-            key={job.id}
-            className="border border-gray-200 flex justify-between  p-4"
+            onClick={() => navigate(`${job.job_id}`)}
+            key={job.job_id}
+            className="border border-gray-200 cursor-pointer flex justify-between  p-4"
           >
             <div className="  flex flex-col gap-2">
               <h2 className="text-lg font-semibold text-[#00008B]">
