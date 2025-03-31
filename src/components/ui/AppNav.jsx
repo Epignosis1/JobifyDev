@@ -8,7 +8,7 @@ const AppNav = () => {
     <div className="flex  justify-between px-6 items-center  ">
       <img src="Group 379.png " className=" w-[120px]" />
       <div
-        className={` mt-4 h-[100%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-6  py-8 absolute top-14 z-[2000]  ${
+        className={` mt-4 h-[80%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-6  py-8 absolute top-14 z-[2000]  ${
           isOpen
             ? "opacity-100 translate-y-0 "
             : "  opacity-0 -translate-y-1  pointer-events-none"

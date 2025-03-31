@@ -20,6 +20,7 @@ import Authlayout from "./Layout/Authlayout";
 import Joblist from "./pages/Joblist";
 import Applayout from "./Layout/Applayout";
 import JobDetails from "./pages/JobDetails";
+import Postcv from "./pages/Postcv";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         />
         <Route path="joblist" element={<Joblist />} />
         <Route path="joblist/:id" element={<JobDetails />} />
+        <Route path="cv" element={<Postcv />} />
       </Route>
     </Route>
   )

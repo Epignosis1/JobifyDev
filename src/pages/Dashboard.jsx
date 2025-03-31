@@ -12,15 +12,6 @@ function Dashboard() {
   const [location, setLocation] = useState("");
   const navigate = useNavigate();
 
-  const upPostsBtn = [
-    {
-      btn: "Upload your CV",
-      content: "Find your dream job with Jobify",
-      id: 1,
-    },
-    { btn: "Post a job", content: "Find the perfect candidate", id: 2 },
-  ];
-
   const { jobResult } = useJobApi({
     jobTitle,
     location,
@@ -86,14 +77,21 @@ function Dashboard() {
 
       {/* Call-to-Action Buttons */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-14 my-20">
-        {upPostsBtn.map((upPost) => (
-          <div key={upPost.id} className="text-center">
-            <button className="border-2 border-[#00008B] text-black w-[250px] px-6 py-3 rounded-full font-semibold shadow-md hover:bg-purple-700 transition">
-              {upPost.btn}
-            </button>
-            <p className="text-gray-600 mt-2">{upPost.content}</p>
-          </div>
-        ))}
+        <div className="text-center">
+          <button
+            onClick={() => navigate("/cv")}
+            className="border-2 border-[#00008B] text-black w-[250px] px-6 py-3 rounded-full font-semibold shadow-md hover:bg-purple-700 transition"
+          >
+            Upload your CV
+          </button>
+          <p className="text-gray-600 mt-2">Find your dream job with jobify</p>
+        </div>
+        <div className="text-center">
+          <button className="border-2 border-[#00008B] text-black w-[250px] px-6 py-3 rounded-full font-semibold shadow-md hover:bg-purple-700 transition">
+            Post a Job
+          </button>
+          <p className="text-gray-600 mt-2">Find the perfect candidate</p>
+        </div>
       </div>
     </div>
   );
