@@ -6,10 +6,7 @@ import Modal from "react-modal";
 const Postcv = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
-    <div
-      className="flex   flex-col text-center max-w-[45dd .
-    0px] mx-auto items-center mt-[50px] gap-4"
-    >
+    <div className="flex   flex-col text-center max-w-[450px] mx-auto items-center mt-[50px] gap-4">
       <div className="mb-10">
         <h2 className="text-3xl mb-3 font-medium">Post your CV</h2>
         <p className="text-gray-400 text-sm">
