@@ -6,7 +6,10 @@ import Modal from "react-modal";
 const Postcv = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
-    <div className="flex overflow-hidden  z-[1000]  flex-col text-center w-[450px] mx-auto items-center mt-[50px] gap-4">
+    <div
+      className="flex   flex-col text-center max-w-[45dd .
+    0px] mx-auto items-center mt-[50px] gap-4"
+    >
       <div className="mb-10">
         <h2 className="text-3xl mb-3 font-medium">Post your CV</h2>
         <p className="text-gray-400 text-sm">
@@ -42,14 +45,14 @@ const UploadModal = ({ setIsOpenModal }) => {
 
   return (
     <div className="absolute overflow-y-auto  inset-0 bg-black/30  backdrop-blur-sm">
-      <div className="bg-white gap-6 fixed   flex flex-col  items-center justify-center transform -translate-x-1/2  top-2 p-4  left-1/2  min-w-[400px]   mb-4 rounded-3xl shadow-md">
+      <div className="bg-white gap-8 fixed   flex flex-col  items-center justify-center transform -translate-x-1/2  top-4 p-4  left-1/2  w-[94%]  mb-[100px] lg:w-[800px]  rounded-3xl shadow-md">
         <div
           onClick={() => setIsOpenModal(false)}
           className="absolute top-2 cursor-pointer text-2xl right-2"
         >
           <FiX />
         </div>
-        <img src="upload.png" className="w-[80px]" />
+        <img src="upload.png" className="w-[80px] mt-8" />
         <div>
           <h2 className="text-lg font-medium">Upload your CV</h2>
           <p className="text-[13px] text-gray-800">
@@ -57,11 +60,11 @@ const UploadModal = ({ setIsOpenModal }) => {
             any device
           </p>
         </div>
-        <div className="border w-[430px] py-8 border-dashed border-blue-800 flex flex-col justify-center items-center gap-4 text-blue-800">
+        <div className="border w-[95%] py-8 border-dashed border-blue-800 flex flex-col justify-center items-center gap-4 text-blue-800">
           <CloudUpload size={44} />
           <p>Upload file</p>
           <p className="text-gray-500 text-[13px]">
-            (.doc, .docx, .pdf, .rtf, .text, Max size 2MB)
+            (.doc, .docx, .pdf, .rtf, .text, Max sizsse 2MB)
           </p>
         </div>
 
@@ -83,7 +86,7 @@ const UploadModal = ({ setIsOpenModal }) => {
           <button className="bg-blue-800 w-full rounded-xl text-white mt-6 p-2">
             Upload
           </button>
-          <button className="bg-blue-800 w-full text-white rounded-xl mt-6 p-2">
+          <button className="bg-blue-800 w-full mb-4 text-white rounded-xl mt-6 p-2">
             Cancel
           </button>
         </form>
