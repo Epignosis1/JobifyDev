@@ -42,9 +42,7 @@ export default function Reset() {
 
   return (
     <div className="mt-[20px]">
-      <h2 className="text-2xl text-center font-semibold">
-        Create a your Account
-      </h2>
+      <h2 className="text-2xl text-center font-semibold">Reset Password</h2>
       <form
         onSubmit={handleReset}
         className="w-[90vw] md:w-[500px] m-auto bg-white text-sm rounded-xl p-5 border-[1px] my-[30px] "

@@ -42,6 +42,14 @@ function JobDetails() {
           <div className="border-t border-gray-300 mt-4 pt-8 ">
             <p>{jobDetail.job_description}</p>
           </div>
+
+          <a
+            className='"flex block text-center cursor-pointer items-center lg:w-[200px] w-full bg-blue-800 p-2 text-white font-semibold rounded-3xl justify-center mt-10'
+            href={jobDetail.job_apply_link}
+            target="_blank"
+          >
+            Apply
+          </a>
         </>
       ))}
     </div>

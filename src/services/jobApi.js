@@ -6,11 +6,11 @@ export const jobApi = async ({ jobTitle, location }) => {
     jobTitle
   )}%20jobs%20in%20${encodeURIComponent(
     location
-  )}&page=1&num_pages=1&country=us&date_posted=all`;
+  )}&page=1&num_pages=3&country=us&date_posted=all`;
   const options = {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "b53f30c35emsh84792794d7302b8p1d7e6ejsnede270f2b566",
+      "x-rapidapi-key": "b1c972fa2emshad2210adec60759p15f59djsn475644233f55",
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };
