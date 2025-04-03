@@ -45,7 +45,7 @@ export async function signInWithGoogle() {
   const { error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
-      redirectTo: "http://localhost:5173/dashboard",
+      redirectTo: "https://jobify-hazel-three.vercel.app/dashboard",
     },
   });
   if (error) throw new Error(error.message);
@@ -53,7 +53,7 @@ export async function signInWithGoogle() {
 
 export async function forget({ email }) {
   const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "http://localhost:5173/resetPassword",
+    redirectTo: "https://jobify-hazel-three.vercel.app/resetPassword",
   });
   console.log(data);
   if (error) {
