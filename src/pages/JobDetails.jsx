@@ -6,7 +6,9 @@ function JobDetails() {
   const { id } = useParams();
   console.log(id);
 
-  const { jobDetailsResult } = useJobApiDetails({ id });
+  const { jobDetailsResult, isLoading } = useJobApiDetails({ id });
+
+  if (isLoading) return <p className="text-center text-gray-600">Loading...</p>;
 
   const jobDetails = jobDetailsResult?.data || [];
   return (
