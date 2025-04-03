@@ -73,7 +73,7 @@ function Login() {
           </>
           <button
             className={`${
-              isFormValid ? "bg-black" : "bg-gray-900 cursor-not-allowed"
+              isFormValid ? "bg-black" : "bg-gray-900 "
             } item-center flex justify-center mt-[20px] text-sm text-white rounded-sm py-[8px] `}
             type="submit"
             disabled={!isFormValid}

@@ -20,40 +20,7 @@ const About = () => {
       order: true,
     },
   ];
-  const staff = [
-    {
-      name: "John Doe",
-      image: "/team1.svg",
-      facebook: "https://www.facebook.com",
-      twitter: "https://www.twitter.com",
-      linkedin: "https://www.linkedin.com",
-      instagram: "https://instagram.com",
-    },
-    {
-      name: "Victor Smith",
-      image: "/team2.svg",
-      facebook: "https://www.facebook.com",
-      twitter: "https://www.twitter.com",
-      linkedin: "https://www.linkedin.com",
-      instagram: "https://instagram.com",
-    },
-    {
-      name: "Jane Smith",
-      image: "/team3.svg",
-      facebook: "https://www.facebook.com",
-      twitter: "https://www.twitter.com",
-      linkedin: "https://www.linkedin.com",
-      instagram: "https://instagram.com",
-    },
-    {
-      name: "Michael Johnson",
-      image: "/team4.svg",
-      facebook: "https://www.facebook.com",
-      twitter: "https://www.twitter.com",
-      linkedin: "https://www.linkedin.com",
-      instagram: "https://instagram.com",
-    },
-  ];
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -106,44 +73,6 @@ const About = () => {
                 {item.title}
               </h3>
               <p className="lg:text-lg">{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="w-full text-center">
-        <p className="px-4 bg-main w-fit mx-auto text-xl lg:text-3xl text-white">
-          Our Team
-        </p>
-        <p className="bg-primaryOrange px-5 md:px-10 pt-2 pb-4">
-          Our team is devoted to improving your recruiting and career
-          development process by concentrating on your particular requirements
-          and using the newest technology to streamline the job hunt.
-        </p>
-      </div>
-      <div className="flex px-3 gap-3 flex-col items-center justify-center md:flex-row">
-        {staff.map((item, index) => (
-          <div key={index} className="">
-            <img src={item.image} alt="staff-img" className="rounded-md" />
-            <div className="text-center text-main hover:bg-main hover:text-white -mt-3 py-3 transition-all ease-in rounded-b-lg">
-              <h3 className="text-sm font-semibold">{item.name}</h3>
-              <div className="flex justify-center gap-1">
-                <Link target="_blank" to={item.facebook}>
-                  <Icon icon="ic:baseline-facebook" width="24" height="24" />
-                </Link>
-                <Link target="_blank" to={item.instagram}>
-                  <Icon icon="mdi:instagram" width="24" height="24" />
-                </Link>
-                <Link target="_blank" to={item.twitter}>
-                  <Icon
-                    icon="hugeicons:new-twitter-rectangle"
-                    width="24"
-                    height="24"
-                  />
-                </Link>
-                <Link target="_blank" to={item.linkedin}>
-                  <Icon icon="ri:linkedin-fill" width="24" height="24" />
-                </Link>
-              </div>
             </div>
           </div>
         ))}

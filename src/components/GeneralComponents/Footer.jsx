@@ -8,8 +8,8 @@ function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <div className=" w-full  flex flex-col gap-8 p-4 text-sm  text-white bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)]">
-      <img src="Group 281.png " className="w-[120px] text-white" />
+    <div className=" w-full  items-center relative flex lg:flex-row flex-col gap-8 lg:gap-[100px] p-4 text-sm  text-white bg-gradient-to-r from-[var(--dark-purple)] to-[var(--light-purple)]">
+      <img src="Group 278.png " className="w-[120px] lg:w-[160px] text-white" />
       <div className=" flex flex-col font-medium gap-2">
         <h2 className="text-xl">Product</h2>
         <a
@@ -37,16 +37,17 @@ function Footer() {
           Contact us
         </a>
       </div>
-      <div>&copy; 2025 Jobify. All rights reserved</div>
-
-      <div className="flex justify-between">
-        <div className="flex gap-4 text-lg">
-          <FaInstagram />
-          <FaTwitter />
-          <FaLinkedin />
-        </div>
-        <div className="cursor-pointer " onClick={handleTop}>
-          <ChevronUp />
+      <div className="flex flex-col gap-4 ">
+        <div>&copy; 2025 Jobify. All rights reserved</div>
+        <div className="flex justify-between">
+          <div className="flex gap-4 text-lg">
+            <FaInstagram />
+            <FaTwitter />
+            <FaLinkedin />
+          </div>
+          <div className="absolute right-1 " onClick={handleTop}>
+            <ChevronUp />
+          </div>
         </div>
       </div>
     </div>

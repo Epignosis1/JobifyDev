@@ -16,11 +16,14 @@ import ProtectedRoute from "./components/ui/ProtectedRoute";
 import { Toaster } from "react-hot-toast";
 import Forget from "./pages/Forget";
 import Reset from "./pages/Reset";
+import { Account } from "./pages/Account";
 import Authlayout from "./Layout/Authlayout";
 import Joblist from "./pages/Joblist";
 import Applayout from "./Layout/Applayout";
 import JobDetails from "./pages/JobDetails";
 import Postcv from "./pages/Postcv";
+import Post from "./pages/Post";
+import Saved from "./pages/Saved";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,6 +51,9 @@ const router = createBrowserRouter(
         <Route path="joblist" element={<Joblist />} />
         <Route path="joblist/:id" element={<JobDetails />} />
         <Route path="cv" element={<Postcv />} />
+        <Route path="post" element={<Post />} />
+        <Route path="saved" element={<Saved />} />
+        <Route path="account" element={<Account />} />
       </Route>
     </Route>
   )

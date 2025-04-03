@@ -1,12 +1,22 @@
 import { FiX, FiMenu } from "react-icons/fi";
 import AppNavLinks from "./AppNavLink";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 const AppNav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
   console.log(isOpen);
   return (
-    <div className="flex  justify-between px-6 items-center  ">
+    <div className="flex border-b  lg:justify-start justify-between p-3 px-6 gap-12 items-center  ">
       <img src="Group 379.png " className=" w-[120px]" />
+
+      <ul className="items-center justify-center w-full hidden  lg:flex w-fit">
+        <AppNavLinks />
+      </ul>
+
       <div
         className={` mt-4 h-[80%] transition-all border border-gray-300  bg-white  duration-200 ease-in-out shadow-xl font-semibold  w-full  flex flex-col md:text-lg left-0 gap-6  py-8 absolute top-14 z-[2000]  ${
           isOpen

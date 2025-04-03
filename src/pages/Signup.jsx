@@ -116,7 +116,7 @@ const Signup = () => {
           <button
             disabled={!isFormValid}
             className={`${
-              isFormValid ? "bg-black" : "bg-gray-900 cursor-not-allowed"
+              isFormValid ? "bg-black" : "bg-gray-900 "
             }  item-center flex justify-center mt-[10px] text-sm text-white rounded-sm py-[8px]`}
           >
             {isPending ? <Spinner /> : "Sign up"}
