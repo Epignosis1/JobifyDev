@@ -35,7 +35,7 @@ const Signup = () => {
   return (
     <div className="mt-[20px]">
       <h2 className="text-2xl text-center font-semibold">
-        Create a your Account
+        Create your Account
       </h2>
       <form
         onSubmit={handleSubmit}

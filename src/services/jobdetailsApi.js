@@ -7,7 +7,7 @@ export const jobApiDetails = async ({ id }) => {
   const options = {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "b1c972fa2emshad2210adec60759p15f59djsn475644233f55",
+      "x-rapidapi-key": "aec8bb047fmsh26e2dd4d4548503p1b3a40jsne6df788e0115",
       "x-rapidapi-host": "jsearch.p.rapidapi.com",
     },
   };
